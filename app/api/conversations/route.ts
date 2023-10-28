@@ -41,6 +41,13 @@ export async function POST(request: Request) {
         }
       })
 
+      // Update all connections with new conversation
+      newConversation.users.forEach((user) => {
+        if (user.email) {
+          pusherServer.trigger(user.email, 'conversation:new', newConversation)
+        }
+      })
+
       return NextResponse.json(newConversation)
     }
 
@@ -74,6 +81,13 @@ export async function POST(request: Request) {
       },
       include: {
         users: true
+      }
+    })
+
+    // Update all connections with new conversation
+    newConversation.users.map((user) => {
+      if (user.email) {
+        pusherServer.trigger(user.email, 'conversation:new', newConversation)
       }
     })
 
