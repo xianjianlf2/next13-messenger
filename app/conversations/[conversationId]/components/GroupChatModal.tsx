@@ -66,7 +66,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
           <p className="mt-1 text-sm leading-6 text-gray-600">
             Create a chat with more than 2 people
           </p>
-          <div className=" mt-10 flex flex-col gap-y-8">
+          <div className="mt-10 flex flex-col gap-y-8">
             <Input
               disabled={isLoading}
               label="Name"
@@ -91,7 +91,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
             />
           </div>
         </div>
-        <div className=" mt-6 flex items-center justify-end gap-x-6">
+        <div className="mt-6 flex items-center justify-end gap-x-6">
           <Button
             disabled={isLoading}
             onClick={onClose}
